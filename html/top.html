@@ -1,0 +1,50 @@
+<div style="color: white; font-family: monospace;">
+	<!-- Game Loops -->
+	<p>Game Loop</p>
+	<button id="game" onclick="gameloop()">start game</button><br>
+	<button id="loop" onclick="stoploop()">pause game</button><br>
+	<button disabled id="reloop" onclick="reloop()">unpause game</button><br>
+	
+	<!-- data dumps.. -->
+	<p>Dumping</p>
+	<button onclick="getallvariables()">dump scene<br>variables<br>(JSON)</button><br>
+	<button onclick="getallglobalvariables()">dump global<br>variables<br>(JSON)</button><br>
+	<button onclick="getallobjects()">dump objects<br>(JSON)</button><br>
+
+	<!-- hitbox overlay.. -->
+	<p>Hitboxes</p>
+	<button id="enableh" onclick="enablehitboxes()">enable hitbox<br>overlay</button><br>
+	<button id="disableh" disabled onclick="disablehitboxes()">disable hitbox<br>overlay</button><br><br>
+
+	
+
+	<!-- Variable Editing -->
+	<p>Variable<br>Editing</p>
+	<input id="varname" size="8" type="text" placeholder="Name"> <br>
+	<input id="varvalue" size="8" type="text" placeholder="Value"> <br>
+	<select size="2" id="varscope" name="scope">
+		<option value="scene">Scene var</option> 
+		<option value="global">Global var</option>
+	</select><br>
+	<button onclick="editvariable()">edit variable</button><br><br>
+
+	<!-- editing object.. -->
+	<p>Object<br>Editing</p>
+	<input id="nameobj" size="8" type="text" placeholder="Name"> <br>
+	<select size="5" id="objattr" name="Attribute">
+		<option value="x">X Position</option> 
+		<option value="y">Y Position</option>
+		<option value="z">Z Order</option>
+		<option value="op">Opacity</option>
+		<option value="an">Angle</option>
+	</select><br>
+	<input id="enume" style='width:5em' type="number" placeholder="Value"> <br>
+	<button onclick="editobjectattribute()">edit object</button>
+
+	<!-- Linebreaks for thing.. -->
+	<br><br><br><br><br>
+	
+	<!-- who made this -->
+	<p style="color:aquamarine">GDJS<br>Toolkit<br>1.0</p>
+	<p style="color:rgb(83, 36, 255)">Made By<br>BeyYT</p>
+</div>
