@@ -129,9 +129,7 @@ function getallobjects() {
         var opened = window.open("");
         opened.document.write(JSON.stringify(finaljson))
     } catch {
-        console.log("[GDJS Toolkit] No Objects in Scene!")
-        console.log("[GDJS Toolkit] Stopping all object scan...")
-        return 
+        console.log("[GDJS Toolkit] object error on object " + objstr)
     }
 }
 
