@@ -56,14 +56,37 @@ function getallglobalvariables() {
 }
 
 function editvariable() {
-    if (isNaN(document.getElementById('varvalue').value) == false) {
-        window.scenestack.getCurrentScene().getVariables().get(document.getElementById('varname').value).setNumber(parseInt(document.getElementById('varvalue').value))
+    var a = document.getElementById("varscope");
+    var value = a.value;
+    if (value == "scene") {
+        if (isNaN(document.getElementById('varvalue').value) == false) {
+            window.scenestack.getCurrentScene().getVariables().get(document.getElementById('varname').value).setNumber(parseInt(document.getElementById('varvalue').value))
+        }
+        if (document.getElementById('varvalue').value == "true" || document.getElementById('varvalue').value == "false") {
+            if (String(document.getElementById('varvalue').value) == "true") { 
+                window.scenestack.getCurrentScene().getVariables().get(document.getElementById('varname').value).setBoolean(true)
+            } else {
+                window.scenestack.getCurrentScene().getVariables().get(document.getElementById('varname').value).setBoolean(false)
+            }
+        }
+        else {
+            window.scenestack.getCurrentScene().getVariables().get(document.getElementById('varname').value).setString(document.getElementById('varvalue').value)
+        }
     }
-    if (document.getElementById('varvalue').value == "true" || document.getElementById('varvalue').value == "false") {
-        if (String(document.getElementById('varvalue').value) == "true") { 
-            window.scenestack.getCurrentScene().getVariables().get(document.getElementById('varname').value).setBoolean(true)
-        } else {
-            window.scenestack.getCurrentScene().getVariables().get(document.getElementById('varname').value).setBoolean(false)
+
+    if (value == "global") {
+        if (isNaN(document.getElementById('varvalue').value) == false) {
+            window.scenestack.getCurrentScene().getGame().getVariables().get(document.getElementById('varname').value).setNumber(parseInt(document.getElementById('varvalue').value))
+        }
+        if (document.getElementById('varvalue').value == "true" || document.getElementById('varvalue').value == "false") {
+            if (String(document.getElementById('varvalue').value) == "true") { 
+                window.scenestack.getCurrentScene().getGame().getVariables().get(document.getElementById('varname').value).setBoolean(true)
+            } else {
+                window.scenestack.getCurrentScene().getGame().getVariables().get(document.getElementById('varname').value).setBoolean(false)
+            }
+        }
+        else {
+            window.scenestack.getCurrentScene().getGame().getVariables().get(document.getElementById('varname').value).setString(document.getElementById('varvalue').value)
         }
     }
 	
