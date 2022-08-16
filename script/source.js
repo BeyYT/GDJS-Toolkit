@@ -93,17 +93,20 @@ function editvariable() {
 }	
 
 function getallobjects() {
-    try {
         var finaljson = {}
         var objs = JSON.stringify(gdjs.RuntimeObject._identifiers.items);
         var objjson = JSON.parse(objs)
         for (const [key, value] of Object.entries(objjson)) {
             var objstr = key.toString()
             var obj = window.scenestack.getCurrentScene().getObjects(key)[0]
-            var x_pos = obj.x
-            var y_pos = obj.y
-            var angle = obj.angle
-            var opacity = obj.opacity
+	    try {
+		    var x_pos = obj.x
+		    var y_pos = obj.y
+		    var angle = obj.angle
+		    var opacity = obj.opacity
+            } catch {
+	    	console.log("Error finding basic attr for object " + objstr)
+	    }
             var z_order = obj.zOrder
             try {
                 var tint =	obj._color.toString();
@@ -125,12 +128,8 @@ function getallobjects() {
             finaljson[objstr]['vars'] = variables
             finaljson[objstr]['tint'] = tint
         }
-
         var opened = window.open("");
         opened.document.write(JSON.stringify(finaljson))
-    } catch {
-        console.log("[GDJS Toolkit] object error on object " + objstr)
-	    return
     }
 }
 
