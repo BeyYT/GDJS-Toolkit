@@ -130,6 +130,7 @@ function getallobjects() {
         opened.document.write(JSON.stringify(finaljson))
     } catch {
         console.log("[GDJS Toolkit] object error on object " + objstr)
+	    return
     }
 }
 
