@@ -31,14 +31,14 @@ function reloop() {
 
 function enablehitboxes() {
     var scene = window.scenestack.getCurrentScene();
-    gdjs.evtTools.debuggerTools.enableDebugDraw(scene, true, true, true, true);
+    scene.enableDebugDraw(true, true, true, true);
     document.querySelector("#enableh").disabled = true;
     document.querySelector("#disableh").disabled = false;
 }
 
 function disablehitboxes() {
     var scene = scenestack.getCurrentScene();
-    gdjs.evtTools.debuggerTools.enableDebugDraw(scene, false, true, true, true);
+    scene.enableDebugDraw(false, true, true, true);
     document.querySelector("#enableh").disabled = false;
     document.querySelector("#disableh").disabled = true;
 }
