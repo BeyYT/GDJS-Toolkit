@@ -112,7 +112,7 @@ function getallobjects() {
             var opacity = obj.opacity;
             var z_order = obj.zOrder;
         } catch {
-            console.log("Error finding basic attr for object " + objstr);
+            console.log("[GDJS Toolkit] Error finding basic attr for object " + objstr);
             var x_pos = 0;
             var y_pos = 0;
             var angle = 0;
